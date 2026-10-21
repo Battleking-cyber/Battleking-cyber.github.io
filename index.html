@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BattleKing Cyber | Cybersecurity Portfolio</title>
+<meta name="description" content="Portfolio of BattleKing (Battleking-cyber): cybersecurity student, ethical hacker and builder of AI-powered security tools.">
+<meta property="og:title" content="BattleKing Cyber">
+<meta property="og:description" content="Securing systems. Breaking them ethically. Building AI defenders.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05080d; --panel:#0b121b; --line:#16222f; --text:#d6e2ee; --muted:#7d8fa3;
+  --cyan:#00d9ff; --blue:#0a4d68; --green:#39ff88;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+canvas#rain{position:fixed;inset:0;z-index:0;opacity:.18;pointer-events:none}
+a{color:var(--cyan);text-decoration:none}
+.wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:10;background:rgba(5,8,13,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.logo{font-family:"Fira Code",monospace;font-weight:600;color:var(--cyan)}
+.logo span{color:var(--green)}
+nav ul{display:flex;gap:22px;list-style:none;font-size:.92rem}
+nav ul a{color:var(--muted);transition:color .2s}
+nav ul a:hover{color:var(--cyan)}
+header.hero{min-height:88vh;display:flex;align-items:center;padding:60px 0}
+.hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;width:100%}
+.tag{font-family:"Fira Code",monospace;color:var(--green);font-size:.9rem}
+h1{font-size:clamp(2.6rem,7vw,4.8rem);font-weight:800;line-height:1.05;margin:10px 0 14px;
+  background:linear-gradient(90deg,#fff,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.typed{font-family:"Fira Code",monospace;font-size:1.15rem;color:var(--cyan);min-height:1.8em}
+.typed::after{content:"▍";animation:blink 1s steps(1) infinite;margin-left:2px}
+@keyframes blink{50%{opacity:0}}
+.hero p.lead{color:var(--muted);max-width:540px;margin:16px 0 26px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:11px 22px;border-radius:8px;font-weight:600;font-size:.95rem;border:1px solid var(--cyan);transition:.2s}
+.btn.primary{background:var(--cyan);color:#021018}
+.btn.primary:hover{box-shadow:0 0 24px rgba(0,217,255,.55);transform:translateY(-2px)}
+.btn.ghost{color:var(--cyan)}
+.btn.ghost:hover{background:rgba(0,217,255,.1);transform:translateY(-2px)}
+.term{background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:0 0 40px rgba(0,217,255,.08);overflow:hidden}
+.term-bar{display:flex;gap:7px;padding:10px 14px;background:#0e1823;border-bottom:1px solid var(--line)}
+.term-bar i{width:11px;height:11px;border-radius:50%;background:#ff5f56}
+.term-bar i:nth-child(2){background:#ffbd2e}.term-bar i:nth-child(3){background:#27c93f}
+.term pre{padding:16px;font-family:"Fira Code",monospace;font-size:.82rem;line-height:1.75;white-space:pre-wrap;color:var(--text)}
+.k{color:var(--green)}.c{color:var(--cyan)}.m{color:var(--muted)}
+section{padding:70px 0}
+.eyebrow{font-family:"Fira Code",monospace;color:var(--green);font-size:.85rem}
+h2{font-size:2rem;margin:6px 0 30px;font-weight:800}
+h2 span{color:var(--cyan)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px;transition:.25s;display:flex;flex-direction:column}
+.card:hover{border-color:var(--cyan);transform:translateY(-5px);box-shadow:0 10px 34px rgba(0,217,255,.12)}
+.card h3{font-size:1.1rem;margin-bottom:8px;color:#fff}
+.card p{color:var(--muted);font-size:.93rem;flex:1}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.chip{font-family:"Fira Code",monospace;font-size:.74rem;padding:3px 10px;border-radius:99px;background:rgba(0,217,255,.08);border:1px solid rgba(0,217,255,.25);color:var(--cyan)}
+.card a.go{margin-top:14px;font-size:.9rem;font-weight:600}
+.building .card{border-style:dashed}
+.badge{display:inline-block;font-family:"Fira Code",monospace;font-size:.7rem;color:var(--green);border:1px solid var(--green);padding:2px 8px;border-radius:6px;margin-bottom:10px;align-self:flex-start}
+.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.skill{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px}
+.skill h4{margin-bottom:12px;color:var(--cyan);font-family:"Fira Code",monospace;font-size:.95rem}
+.bar{height:6px;background:#12202d;border-radius:9px;margin:9px 0 14px;overflow:hidden}
+.bar b{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:9px;transition:width 1.4s ease}
+.skill small{color:var(--muted);display:flex;justify-content:space-between}
+.certs{list-style:none;display:grid;gap:12px}
+.certs li{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--cyan);border-radius:8px;padding:14px 18px}
+.certs li b{color:#fff}.certs li span{color:var(--muted);font-size:.9rem;display:block}
+.contact{text-align:center}
+.contact p{color:var(--muted);max-width:520px;margin:0 auto 24px}
+footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:26px 0;text-align:center;color:var(--muted);font-size:.85rem;font-family:"Fira Code",monospace}
+.reveal{opacity:0;transform:translateY(26px);transition:.7s}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:820px){.hero-grid{grid-template-columns:1fr}nav ul{display:none}}
+</style>
+</head>
+<body>
+<canvas id="rain"></canvas>
+
+<nav><div class="wrap">
+  <div class="logo">&gt;_ battle<span>king</span></div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certs">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <div class="tag">// hello, world. i am</div>
+    <h1>BATTLEKING<br>CYBER</h1>
+    <div class="typed" id="typed"></div>
+    <p class="lead">Cybersecurity student at MAHE Manipal. I break things ethically, defend them properly, and build AI-powered tools that turn noisy alerts into clear answers.</p>
+    <div class="btns">
+      <a class="btn primary" href="#projects">View Projects</a>
+      <a class="btn ghost" href="https://github.com/Battleking-cyber" target="_blank" rel="noopener">GitHub Profile</a>
+    </div>
+  </div>
+  <div class="term">
+    <div class="term-bar"><i></i><i></i><i></i></div>
+<pre><span class="k">root@kali</span>:<span class="c">~</span># whoami
+battleking
+
+<span class="k">root@kali</span>:<span class="c">~</span># cat profile.json
+{
+  <span class="c">"role"</span>:   "Cybersecurity Student",
+  <span class="c">"school"</span>: "MSIS, MAHE Manipal",
+  <span class="c">"os"</span>:     ["Kali Linux", "Windows"],
+  <span class="c">"focus"</span>:  ["Pentesting", "SOC", "AI"],
+  <span class="c">"status"</span>: "building..."
+}
+<span class="k">root@kali</span>:<span class="c">~</span># <span class="m">_</span></pre>
+  </div>
+</div></header>
+
+<section id="about"><div class="wrap reveal">
+  <div class="eyebrow">01. about</div>
+  <h2>Think like an <span>attacker</span>. Build like a <span>defender</span>.</h2>
+  <p style="color:var(--muted);max-width:760px">I'm pursuing an M.E. in Cybersecurity at MSIS, Manipal Academy of Higher Education. I spend my time on Kali Linux, practicing on TryHackMe and OverTheWire, and writing tools that automate detection and response. My capstone is an Autonomous SOC Copilot that triages alerts with AI and responds automatically.</p>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <div class="reveal"><div class="eyebrow">02. projects</div><h2>Things I've <span>built</span></h2></div>
+  <div class="grid">
+    <div class="card reveal"><h3>api-sentinel</h3><p>AI-powered REST API vulnerability scanner for the OWASP Top 10, using Random Forest and Isolation Forest with a React dashboard.</p><div class="chips"><span class="chip">Python</span><span class="chip">ML</span><span class="chip">React</span></div><a class="go" href="https://github.com/Battleking-cyber/api-sentinel" target="_blank" rel="noopener">View repo &rarr;</a></div>
+    <div class="card reveal"><h3>adaptive-rag-system</h3><p>Hybrid retrieval (FAISS + BM25) with dynamic top-K and a runtime feedback loop for document question answering.</p><div class="chips"><span class="chip">Python</span><span class="chip">RAG</span><span class="chip">NLP</span></div><a class="go" href="https://github.com/Battleking-cyber/adaptive-rag-system" target="_blank" rel="noopener">View repo &rarr;</a></div>
+    <div class="card reveal"><h3>phishguard-extension</h3><p>Chrome extension that detects phishing links and risky websites in real time.</p><div class="chips"><span class="chip">JavaScript</span><span class="chip">Chrome</span></div><a class="go" href="https://github.com/Battleking-cyber/phishguard-extension" target="_blank" rel="noopener">View repo &rarr;</a></div>
+    <div class="card reveal"><h3>CyberShield AI GUI Firewall</h3><p>AI-powered GUI firewall for real-time network traffic monitoring, phishing detection and threat prevention.</p><div class="chips"><span class="chip">Python</span><span class="chip">GUI</span><span class="chip">Networking</span></div><a class="go" href="https://github.com/Battleking-cyber/CyberShield-AI-GUI-Firewall" target="_blank" rel="noopener">View repo &rarr;</a></div>
+    <div class="card reveal"><h3>Log-File-Analyzer</h3><p>Helps admins and testers find sensitive data and login attempts hiding inside log files.</p><div class="chips"><span class="chip">Shell</span><span class="chip">Forensics</span></div><a class="go" href="https://github.com/Battleking-cyber/Log-File-Analyzer-" target="_blank" rel="noopener">View repo &rarr;</a></div>
+    <div class="card reveal"><h3>ip-subnet-calculator</h3><p>Bash IP and subnet calculator showing network ID, broadcast address, usable host range and subnet breakdowns.</p><div class="chips"><span class="chip">Shell</span><span class="chip">Networking</span></div><a class="go" href="https://github.com/Battleking-cyber/ip-subnet-calculator" target="_blank" rel="noopener">View repo &rarr;</a></div>
+  </div>
+  <div class="building" style="margin-top:44px">
+    <div class="reveal"><div class="eyebrow">currently building</div><h2 style="font-size:1.4rem">In the <span>lab</span></h2></div>
+    <div class="grid">
+      <div class="card reveal"><span class="badge">IN PROGRESS</span><h3>Autonomous SOC Copilot</h3><p>Capstone project: AI-driven alert triage and automated response platform for security operations.</p></div>
+      <div class="card reveal"><span class="badge">IN PROGRESS</span><h3>JARVIS for Kali</h3><p>Voice-controlled personal AI assistant with a GUI, file access and self-diagnostics.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <div class="reveal"><div class="eyebrow">03. skills</div><h2>The <span>arsenal</span></h2></div>
+  <div class="skills reveal">
+    <div class="skill"><h4>Offensive</h4><small><span>Pentesting</span><span>Kali · Burp · Nmap · Metasploit</span></small><div class="bar"><b data-w="80"></b></div><small><span>Privilege escalation</span></small><div class="bar"><b data-w="70"></b></div></div>
+    <div class="skill"><h4>Defensive</h4><small><span>SOC &amp; triage</span></small><div class="bar"><b data-w="75"></b></div><small><span>Log analysis &amp; forensics</span></small><div class="bar"><b data-w="75"></b></div></div>
+    <div class="skill"><h4>Development</h4><small><span>Python</span></small><div class="bar"><b data-w="82"></b></div><small><span>Bash · JavaScript · React</span></small><div class="bar"><b data-w="72"></b></div></div>
+    <div class="skill"><h4>AI / ML</h4><small><span>Anomaly detection</span></small><div class="bar"><b data-w="70"></b></div><small><span>RAG &amp; retrieval systems</span></small><div class="bar"><b data-w="72"></b></div></div>
+  </div>
+</div></section>
+
+<section id="certs"><div class="wrap">
+  <div class="reveal"><div class="eyebrow">04. credentials</div><h2>Certs &amp; <span>labs</span></h2></div>
+  <ul class="certs reveal">
+    <li><b>Dark Web Forensics</b><span>EC-Council</span></li>
+    <li><b>Ethical Hacking &amp; Vulnerability Assessment</b><span>The Drop Organization</span></li>
+    <li><b>Cybersecurity Certification</b><span>MeitY, Government of India</span></li>
+    <li><b>Pentesting &amp; Privilege Escalation</b><span>Course completion</span></li>
+    <li><b>Hands-on labs</b><span>TryHackMe · OverTheWire Bandit</span></li>
+  </ul>
+</div></section>
+
+<section id="contact"><div class="wrap contact reveal">
+  <div class="eyebrow">05. contact</div>
+  <h2>Let's <span>connect</span></h2>
+  <p>Open to internships, collaborations and security projects. The best way to reach me is through GitHub.</p>
+  <a class="btn primary" href="https://github.com/Battleking-cyber" target="_blank" rel="noopener">github.com/Battleking-cyber</a>
+</div></section>
+
+<footer>&copy; <span id="yr"></span> BattleKing Cyber &middot; "Security is a process, not a product."</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// typing effect
+const phrases = ["Ethical Hacker | Pentester","M.E. Cybersecurity @ MAHE","Building AI-powered security tools","Turning alerts into answers"];
+const el = document.getElementById('typed');
+let p=0,i=0,del=false;
+(function tick(){
+  const w = phrases[p];
+  el.textContent = w.slice(0,i);
+  if(!del && i<w.length){i++;setTimeout(tick,70)}
+  else if(!del){del=true;setTimeout(tick,1400)}
+  else if(i>0){i--;setTimeout(tick,35)}
+  else{del=false;p=(p+1)%phrases.length;setTimeout(tick,300)}
+})();
+
+// matrix rain
+const cv=document.getElementById('rain'),cx=cv.getContext('2d');
+let cols,drops;
+function size(){cv.width=innerWidth;cv.height=innerHeight;cols=Math.floor(cv.width/16);drops=Array(cols).fill(1)}
+size();addEventListener('resize',size);
+const chars="01ABCDEF{}<>/$#=+";
+setInterval(()=>{
+  cx.fillStyle="rgba(5,8,13,.12)";cx.fillRect(0,0,cv.width,cv.height);
+  cx.fillStyle="#00d9ff";cx.font="14px Fira Code, monospace";
+  drops.forEach((y,x)=>{
+    cx.fillText(chars[Math.floor(Math.random()*chars.length)],x*16,y*16);
+    if(y*16>cv.height&&Math.random()>.975)drops[x]=0;
+    drops[x]++;
+  });
+},60);
+
+// reveal + skill bars
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){
+    e.target.classList.add('in');
+    e.target.querySelectorAll('.bar b').forEach(b=>b.style.width=b.dataset.w+'%');
+    io.unobserve(e.target);
+  }
+}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(n=>io.observe(n));
+</script>
+</body>
+</html>
